@@ -1,3 +1,4 @@
+/****************** Library components imports ******************/
 import { Component } from '@angular/core';
 
 @Component({
