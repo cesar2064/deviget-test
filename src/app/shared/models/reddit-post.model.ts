@@ -11,6 +11,7 @@ export interface RedditPostResponse extends RedditResponseModel {
 export interface RedditPostModel {
     kind: string;
     data: {
+        id: string;
         title: string;
         author: string;
         thumbnail: string;
