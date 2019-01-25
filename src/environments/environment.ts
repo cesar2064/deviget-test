@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    reddit: {
+      mainUrl: 'https://www.reddit.com',
+      get top() {
+        return `${environment.api.reddit.mainUrl}/top.json`
+      }
+    }
+  }
 };
 
 /*
