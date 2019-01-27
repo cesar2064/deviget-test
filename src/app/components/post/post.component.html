@@ -1,0 +1,8 @@
+<div class="post-body">
+  <h1>{{post.data.author}}</h1>
+  <h2>{{post.data.title}}</h2>
+  <img *ngIf="post.data.thumbnail !='self' && post.data.thumbnail !='default';else selfText" [src]="post.data.thumbnail">
+  <ng-template #selfText>
+    <p>{{post.data.selftext}}</p>
+  </ng-template>
+</div>

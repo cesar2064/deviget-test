@@ -1,0 +1,11 @@
+<mat-sidenav-container (panright)="onSwipeRight($event)" (panleft)="onSwipeLeft($event)">
+  <mat-sidenav mode="side" [opened]="openSideNav">
+    <button (click)="removeAll()" class="clear-button" mat-raised-button color="warn">CLEAR ALL POSTS</button>
+    <ng-container *ngFor="let post of redditPostState.posts;">
+        <app-post-preview [post]="post" (openedPost)="onOpenedPost(post.data.id)"></app-post-preview>
+    </ng-container> 
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-post [post]="openedPost" *ngIf="openedPost && !openedPost.isDeleted"></app-post>
+  </mat-sidenav-content>
+</mat-sidenav-container>

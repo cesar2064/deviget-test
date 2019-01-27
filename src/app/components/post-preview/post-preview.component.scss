@@ -1,0 +1,43 @@
+@import '../../../scss/mixins';
+
+mat-card{
+    @include centered-flex();
+    margin: 5px 10px 5px 5px;
+}
+mat-card-title{
+    @include centered-flex();
+    flex-direction: row;
+    max-height: 200px;
+    margin-right: auto;
+    word-break: break-all;
+}
+mat-card-actions{
+    @include centered-flex();
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;    
+}
+mat-card-content{
+    @include centered-flex();
+    cursor:pointer;
+    margin-top:20px;
+    margin-bottom: 0px;
+    img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+.mat-mini-fab{
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.remove-button{
+    width: 112px;
+}
+
+.time-ago{
+    font-size: 15px;
+    font-style: italic;
+}

@@ -1,0 +1,15 @@
+mat-sidenav-container{
+    height: 100%;
+    width: 100%;
+    mat-sidenav{
+        width: 305px;
+    }
+}
+@media screen and (max-width: 800px){
+    mat-sidenav{
+        width: 100% !important;
+    }
+}
+.clear-button{
+    width: 100%;
+}
