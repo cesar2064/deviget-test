@@ -24,7 +24,7 @@
 	- I have Used angular animations (included in the framework
 
 # app link for testing
-https://storage.googleapis.com/deviget-test/index.html
+https://cesar2064.github.io/deviget-test/
 
 ## Development server 
 
