@@ -6,6 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { LayoutModule } from '@angular/cdk/layout';
 
 /**************** App modules imports ***************/
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ import { PostComponent } from './components/post/post.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    LayoutModule,
     AppRoutingModule,
     SharedModule
   ],

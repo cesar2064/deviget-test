@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened="true">
+  <mat-sidenav mode="side" [opened]="openSideNav">
     <ng-container *ngFor="let post of redditPostState.posts;">
         <app-post-preview [post]="post" (openedPost)="onOpenedPost(post.data.id)"></app-post-preview>
     </ng-container> 
