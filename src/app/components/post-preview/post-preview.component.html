@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!post.isDeleted" [@simpleFadeAnimation]>
   <mat-card-title><button mat-mini-fab [color]="post.isRead ? '': 'primary'" (click)="open()"></button> {{post.data.author}}</mat-card-title>
   <mat-card-content (click)="open()">
     <div>

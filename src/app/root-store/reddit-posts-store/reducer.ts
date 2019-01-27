@@ -1,4 +1,4 @@
-import { Actions, ActionTypes } from './actions';
+import { Actions, ActionTypes, PostSuccessAction } from './actions';
 import { featureAdapter, initialState, RedditPostsState } from './state';
 import { RedditPostModel } from 'src/app/shared/models/reddit-post.model';
 import { UPDATE } from '@ngrx/store';
@@ -20,11 +20,10 @@ export function postReducer(state = initialState, action: Actions): RedditPostsS
                 isLoading: false,
             });
         case ActionTypes.POST_DELETE:
+            let post = state.posts.find((post) => post.data.id == action.payload.id);
+            post && (post.isDeleted = true);
             return {
                 ...state,
-                posts: state.posts.filter((post: RedditPostModel) => {
-                    return post.data.id !== action.payload.id;
-                }),
                 isLoading: false,
             };
         case ActionTypes.POST_UPDATE:

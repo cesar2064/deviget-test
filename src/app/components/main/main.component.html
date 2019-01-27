@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened="true">
     <ng-container *ngFor="let post of redditPostState.posts;">
-        <app-post-preview [@simpleFadeAnimation]  [post]="post" (deletedPost)="onDeletedPost($event)"></app-post-preview>
+        <app-post-preview [post]="post"></app-post-preview>
     </ng-container> 
   </mat-sidenav>
   <mat-sidenav-content>Main</mat-sidenav-content>
