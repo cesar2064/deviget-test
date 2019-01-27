@@ -47,4 +47,10 @@ export class MainComponent implements OnInit {
   onOpenedPost(id: string) {
     this.openedPost = this.redditPostState.posts.find(post => post.data.id == id);
   }
+  onSwipeRight($event) {
+    this.openSideNav = true;
+  }
+  onSwipeLeft($event) {
+    this.openSideNav = false;
+  }
 }
