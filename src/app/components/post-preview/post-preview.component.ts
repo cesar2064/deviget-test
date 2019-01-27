@@ -21,6 +21,8 @@ import { trigger, transition, animate, style } from '@angular/animations';
 export class PostPreviewComponent implements OnInit {
 
   @Input() post: RedditPostModel;
+  @Output() openedPost = new EventEmitter();
+
   constructor(
     private store$: Store<RootStoreState.State>
   ) { }
@@ -30,6 +32,7 @@ export class PostPreviewComponent implements OnInit {
   open() {
     this.post.isRead = true;
     this.store$.dispatch(new PostUpdateAction(this.post));
+    this.openedPost.emit();
   }
 
   remove() {

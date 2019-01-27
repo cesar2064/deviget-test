@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Store, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { RootStoreState } from 'src/app/root-store';
 import { take, map, filter } from 'rxjs/operators';
-import { RedditPostModel } from '../models/reddit-post.model';
 import { PostRequestAction } from '../../root-store/reddit-posts-store/actions';
 import { RedditPostsState } from 'src/app/root-store/reddit-posts-store/state';
 

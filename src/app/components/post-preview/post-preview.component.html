@@ -2,7 +2,7 @@
   <mat-card-title><button mat-mini-fab [color]="post.isRead ? '': 'primary'" (click)="open()"></button> {{post.data.author}}</mat-card-title>
   <mat-card-content (click)="open()">
     <div>
-      <img mat-card-image [src]="post.data.thumbnail">
+      <img *ngIf="post.data.thumbnail !='self' && post.data.thumbnail !='default'" mat-card-image [src]="post.data.thumbnail">
     </div>
     <div>
       {{post.data.title | cutText}}

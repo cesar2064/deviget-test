@@ -1,9 +1,5 @@
-@mixin centered-flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+@import '../../../scss/mixins';
+
 mat-card{
     @include centered-flex();
     margin: 5px 10px 5px 5px;    

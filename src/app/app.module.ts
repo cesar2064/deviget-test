@@ -15,13 +15,15 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
+import { PostComponent } from './components/post/post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    PostPreviewComponent
+    PostPreviewComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

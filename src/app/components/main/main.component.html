@@ -1,8 +1,10 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened="true">
     <ng-container *ngFor="let post of redditPostState.posts;">
-        <app-post-preview [post]="post"></app-post-preview>
+        <app-post-preview [post]="post" (openedPost)="onOpenedPost(post.data.id)"></app-post-preview>
     </ng-container> 
   </mat-sidenav>
-  <mat-sidenav-content>Main</mat-sidenav-content>
+  <mat-sidenav-content>
+    <app-post [post]="openedPost" *ngIf="openedPost && !openedPost.isDeleted"></app-post>
+  </mat-sidenav-content>
 </mat-sidenav-container>
