@@ -11,7 +11,7 @@
       <img *ngIf="post.data.thumbnail !='self' && post.data.thumbnail !='default'" mat-card-image [src]="post.data.thumbnail">
     </div>
     <div>
-      {{post.data.title | cutText:30}}
+      {{post.data.title}}
     </div>
   </mat-card-content>
   <mat-card-actions>
