@@ -4,18 +4,18 @@ import {
     MemoizedSelector
 } from '@ngrx/store';
 
-import { featureAdapter, State } from './state';
+import { featureAdapter, RedditPostsState } from './state';
 import { RootStoreState } from '../../root-store';
 import { RedditPostModel } from 'src/app/shared/models/reddit-post.model';
 
-const getError = (state: State): any => state.error;
+const getError = (state: RedditPostsState): any => state.error;
 
-const getIsLoading = (state: State): boolean => state.isLoading;
+const getIsLoading = (state: RedditPostsState): boolean => state.isLoading;
 
 export const selecPostState: MemoizedSelector<
     object,
-    State
-    > = createFeatureSelector<State>('post');
+    RedditPostsState
+    > = createFeatureSelector<RedditPostsState>('post');
 
 export const selectAllPosts: (
     state: object

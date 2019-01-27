@@ -1,0 +1,31 @@
+@mixin centered-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+mat-card{
+    @include centered-flex();
+    margin: 5px 10px 5px 5px;    
+}
+mat-card-title{
+    max-height: 200px;
+    margin-right: auto;
+}
+mat-card-actions{
+    margin-right: auto;
+}
+mat-card-content{
+    @include centered-flex();
+    cursor:pointer;
+    margin-top:20px;
+    margin-bottom: 0px;
+    img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+.mat-mini-fab{
+    width: 20px;
+    height: 20px;
+}

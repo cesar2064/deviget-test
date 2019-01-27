@@ -9,6 +9,7 @@ export interface RedditPostResponse extends RedditResponseModel {
 }
 
 export interface RedditPostModel {
+    isRead?: boolean;
     kind: string;
     data: {
         id: string;

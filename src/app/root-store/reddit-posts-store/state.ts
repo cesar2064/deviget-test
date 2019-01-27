@@ -7,13 +7,13 @@ RedditPostModel
     selectId: model => model.data.id
 });
 
-export interface State extends EntityState<RedditPostModel>  {
+export interface RedditPostsState extends EntityState<RedditPostModel>  {
     posts: RedditPostModel[];
     isLoading: boolean;
     error: string;
 }
 
-export const initialState: State = featureAdapter.getInitialState({
+export const initialState: RedditPostsState = featureAdapter.getInitialState({
     posts: [],
     isLoading: false,
     error: null

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable, of as observableOf } from 'rxjs';
-import { catchError, map, exhaustMap } from 'rxjs/operators';
+import { catchError, map, switchMap, withLatestFrom, startWith } from 'rxjs/operators';
 import * as featureActions from './actions';
 import { RootStoreState } from '..';
 import { RedditService } from 'src/app/shared/services/reddit.service';
@@ -23,7 +23,8 @@ export class RedditPostsStoreEffects {
         ofType<featureActions.PostRequestAction>(
             featureActions.ActionTypes.POST_REQUEST
         ),
-        exhaustMap(() => {
+        withLatestFrom(this.store$),        
+        switchMap(() => {
             return this.redditService
                 .top()
                 .pipe(

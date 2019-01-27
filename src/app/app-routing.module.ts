@@ -4,7 +4,11 @@ import { MainComponent } from './components/main/main.component';
 import { ReddiPostsResolver } from './shared/services/reddi-posts.resolver';
 
 const routes: Routes = [
-  { path: '', component: MainComponent, resolve: [ReddiPostsResolver] }
+  {
+    path: '', component: MainComponent, resolve: {
+      posts: ReddiPostsResolver
+    }
+  }
 ];
 
 @NgModule({

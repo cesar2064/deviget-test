@@ -1,10 +1,11 @@
 import { Actions, ActionTypes } from './actions';
-import { featureAdapter, initialState, State } from './state';
+import { featureAdapter, initialState, RedditPostsState } from './state';
 import { RedditPostModel } from 'src/app/shared/models/reddit-post.model';
+import { UPDATE } from '@ngrx/store';
 
 declare var moment: any;
 
-export function postReducer(state = initialState, action: Actions): State {
+export function postReducer(state = initialState, action: Actions): RedditPostsState {
     switch (action.type) {
         case ActionTypes.POST_REQUEST:
             return {
@@ -24,6 +25,16 @@ export function postReducer(state = initialState, action: Actions): State {
                 posts: state.posts.filter((post: RedditPostModel) => {
                     return post.data.id !== action.payload.id;
                 }),
+                isLoading: false,
+            };
+        case ActionTypes.POST_UPDATE:
+            let found = state.posts.find((post) => {
+                return post.data.id == action.payload.data.id
+            });
+            Object.assign(found, action.payload);
+            return {
+                ...state,
+                posts: state.posts,
                 isLoading: false,
             };
         case ActionTypes.POST_ERROR:

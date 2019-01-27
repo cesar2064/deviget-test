@@ -5,6 +5,7 @@ export enum ActionTypes {
   POST_REQUEST = 'Post list request',
   POST_SUCCESS = 'Post detail',
   POST_DELETE = 'Post delete',
+  POST_UPDATE = 'Post update',
   POST_ERROR = 'Post error'
 }
 
@@ -23,9 +24,14 @@ export class PostDeleteAction implements Action {
   constructor(public payload: { id: string }) { }
 }
 
+export class PostUpdateAction implements Action {
+  readonly type = ActionTypes.POST_UPDATE;
+  constructor(public payload: RedditPostModel) { }
+}
+
 export class PostErrorAction implements Action {
   readonly type = ActionTypes.POST_ERROR;
   constructor(public payload: { error: string }) { }
 }
 
-export type Actions = PostRequestAction | PostSuccessAction | PostErrorAction | PostDeleteAction;
+export type Actions = PostRequestAction | PostSuccessAction | PostErrorAction | PostDeleteAction | PostUpdateAction;
