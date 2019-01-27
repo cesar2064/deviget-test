@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   redditPostState: RedditPostsState;
   openedPost: RedditPostModel;
   openSideNav = false;
+  fullSideNav = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -41,16 +42,25 @@ export class MainComponent implements OnInit {
         }
         else {
           this.openSideNav = false;
+          this.fullSideNav = true;
         }
       });
   }
   onOpenedPost(id: string) {
     this.openedPost = this.redditPostState.posts.find(post => post.data.id == id);
+    if (this.fullSideNav) {
+      this.openSideNav = false;
+    }
   }
   onSwipeRight($event) {
     this.openSideNav = true;
   }
   onSwipeLeft($event) {
     this.openSideNav = false;
+  }
+  removeAll() {
+    this.redditPostState.posts.forEach((post) => {
+      post.isDeleted = true;
+    })
   }
 }

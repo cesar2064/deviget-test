@@ -4,9 +4,10 @@ import { RedditService } from './services/reddit.service';
 import { RootStoreModule } from '../root-store';
 import { HttpClientModule } from '@angular/common/http';
 import { CutTextPipe } from './pipes/cut-text.pipe';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
 
 @NgModule({
-  declarations: [CutTextPipe],
+  declarations: [CutTextPipe, TimeAgoPipe],
   imports: [
     CommonModule,
     RootStoreModule,
@@ -16,7 +17,8 @@ import { CutTextPipe } from './pipes/cut-text.pipe';
     RedditService
   ],
   exports:[
-    CutTextPipe
+    CutTextPipe,
+    TimeAgoPipe
   ]
 })
 export class SharedModule { }

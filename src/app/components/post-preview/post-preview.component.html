@@ -1,17 +1,24 @@
 <mat-card *ngIf="!post.isDeleted" [@simpleFadeAnimation]>
-  <mat-card-title><button mat-mini-fab [color]="post.isRead ? '': 'primary'" (click)="open()"></button> {{post.data.author}}</mat-card-title>
+  <mat-card-title>
+    <button mat-mini-fab [color]="post.isRead ? '': 'primary'" (click)="open()"></button>
+    <div class="author-data">
+      <div>{{post.data.author}}</div>
+      <div class="time-ago">{{ post.data.created_utc * 1000| timeAgo}}</div>
+    </div>
+  </mat-card-title>
   <mat-card-content (click)="open()">
     <div>
       <img *ngIf="post.data.thumbnail !='self' && post.data.thumbnail !='default'" mat-card-image [src]="post.data.thumbnail">
     </div>
     <div>
-      {{post.data.title | cutText}}
+      {{post.data.title | cutText:30}}
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-icon-button (click)="remove()">
+    <button class="remove-button" mat-icon-button (click)="remove()">
       <mat-icon>close</mat-icon>
       Dismiss post
     </button>
+    <div>{{post.data.num_comments}} comments</div>
   </mat-card-actions>
 </mat-card>
